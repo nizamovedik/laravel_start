@@ -18,3 +18,8 @@ Route::get('/posts/{post}', [PostController::class, 'show'])->name('post.show');
 Route::patch('/posts/{post}', [PostController::class, 'update'])->name('post.update');
 Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('post.edit');
 Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('post.delete');
+
+// News route
+Route::group(['namespace' => 'App\Http\Controllers\News'], function () {
+    Route::get('/news', 'IndexController')->name('news.index');
+});
