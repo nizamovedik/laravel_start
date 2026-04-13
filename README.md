@@ -39,6 +39,24 @@ composer require laravel/boost --dev
 php artisan boost:install
 ```
 
+## Установка зависимостей
+
+Composer
+
+```bash
+composer install
+```
+or
+```bash
+composer update
+```
+
+Npm
+
+```bash
+npm install
+```
+
 Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
 
 ## Contributing
