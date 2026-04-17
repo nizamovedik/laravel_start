@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Section;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -26,5 +27,12 @@ class DatabaseSeeder extends Seeder
 //        \App\Models\Post::factory(20)->create();
 //        \App\Models\Tag::factory(7)->create();
 //        \App\Models\PostTag::factory(20)->create();
+
+//        \App\Models\Author::factory(5)->create();
+//        $sections = \App\Models\Section::factory(5)->create();
+//        $news = \App\Models\News::factory()
+//            ->count(20)
+//            ->hasAttached($sections->random(rand(1, 3)))
+//            ->create();
     }
 }
