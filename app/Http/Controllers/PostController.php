@@ -15,13 +15,6 @@ class PostController extends Controller
 {
     public function index(Request $request): Factory|View
     {
-//        $tags = Tag::all()->find(4);
-//        dd($tags->posts);
-//        $post = Post::all()->find(5)->tags;
-//        dd($post);
-//        $categories = Category::all()->find(1);
-//        dd($categories->posts);
-//        $posts = Post::where('title', 'like', '%title%')->limit(10)->get();
         $posts = Post::all();
         return view('post.index', compact('posts'));
     }
@@ -48,13 +41,6 @@ class PostController extends Controller
         unset($data['tags']);
 
         $post = Post::create($data);
-
-        /*foreach ($tags as $tag) {
-            PostTag::firstOrCreate([
-                'post_id' => $post->id,
-                'tag_id' => $tag
-            ]);
-        }*/
         $post->tags()->attach($tags);
 
         return redirect(route('post.index'));
