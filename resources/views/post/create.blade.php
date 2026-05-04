@@ -5,13 +5,12 @@
     <form action="{{route('post.store')}}" method="post">
         @csrf
         @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
+            @foreach ($errors->all() as $error)
+                <x-error-show type="warning">
+                    <x-slot:info>Важно: </x-slot>
+                    {{$error}}
+                </x-error-show>
+            @endforeach
         @endif
         <div class="mb-3">
             <label for="title" class="form-label">title</label>
@@ -19,7 +18,7 @@
                    name="title"
                    value="{{ old('title') }}">
             @error('title')
-            <p class="text-danger">{{$message}}</p>
+            <x-error-show>{{$error}}</x-error-show>
             @enderror
         </div>
         <div class="mb-3">
@@ -37,8 +36,8 @@
             <select class="form-select" id="category" name="category_id">
                 @foreach($categories as $category)
                     <option
-                        {{old('category_id') == $category->id ? ' selected' : ''}}
-                        value="{{$category->id}}">{{$category->title}}</option>
+                            {{old('category_id') == $category->id ? ' selected' : ''}}
+                            value="{{$category->id}}">{{$category->title}}</option>
                 @endforeach
             </select>
         </div>
