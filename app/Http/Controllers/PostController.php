@@ -51,7 +51,7 @@ class PostController extends Controller
         return view('post.show', compact('post'));
     }
 
-    public function edit(Post $post)
+    public function edit(Post $post): Factory|View
     {
         $categories = Category::all();
         $tags = Tag::all();

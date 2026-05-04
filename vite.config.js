@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import {defineConfig} from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
 
@@ -13,7 +13,7 @@ export default defineConfig({
             ],
             refresh: true,
         }),
-        vue({ // Добавить
+        vue({
             template: {
                 transformAssetUrls: {
                     base: null,
@@ -26,5 +26,12 @@ export default defineConfig({
         alias: {
             'vue': 'vue/dist/vue.esm-bundler.js'
         }
-    }
+    },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                silenceDeprecations: ['color-functions', 'global-builtin', 'import', 'if-function']
+            },
+        }
+    },
 });

@@ -27,3 +27,20 @@ Route::group(['namespace' => 'App\Http\Controllers\News'], function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Admin
+Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
+    Route::get('/', 'IndexController')->name('admin.index');
+
+    Route::group(['namespace' => '\App\Http\Controllers\Admin\News', 'prefix' => 'news'], function () {
+        Route::get('/', 'IndexController')->name('admin.news.index');
+    });
+
+    Route::group(['namespace' => '\App\Http\Controllers\Admin\Section', 'prefix' => 'sections'], function () {
+        Route::get('/{page?}', 'IndexController')->where('page', '.*')->name('admin.sections.index');
+    });
+
+    Route::group(['namespace' => '\App\Http\Controllers\Admin\Author', 'prefix' => 'authors'], function () {
+        Route::get('/', 'IndexController')->name('admin.authors.index');
+    });
+});

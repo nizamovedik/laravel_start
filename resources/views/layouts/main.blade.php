@@ -10,22 +10,10 @@
 </head>
 <body>
 <div class="main container">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <ul class="navbar-nav">
-            <li class="nav-item"><a href="{{route('main.index')}}" class="nav-link">Главная</a></li>
-            <li class="nav-item"><a href="{{route('about.index')}}" class="nav-link">О нас</a></li>
-            <li class="nav-item"><a href="{{route('post.index')}}" class="nav-link">Посты</a></li>
-        </ul>
-    </nav>
+    @include('layouts.menu')
     @section('sidebar')
         This is the master sidebar.
     @show
-
-    <div id="app">123
-        <example-component>687</example-component>
-        rwet
-    </div>
-
     @yield('content')
 </div>
 </body>
