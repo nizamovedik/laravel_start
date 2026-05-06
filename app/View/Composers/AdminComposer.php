@@ -17,10 +17,7 @@ class AdminComposer
         $authorsCount = Author::all()->count();
         $sectionsCount = Section::all()->count();
         $latestSections = SectionResource::collection(Section::latest()->take(2)->get());
-        $view->with('newsCount', $newsCount)
-            ->with('authorsCount', $authorsCount)
-            ->with('sectionsCount', $sectionsCount)
-            ->with('latestSections', $latestSections);
+        $view->with(compact('newsCount', 'authorsCount', 'sectionsCount', 'latestSections'));
     }
 
 }

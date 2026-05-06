@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="{{ request()->cookie('theme')?:'light' }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"

@@ -3,6 +3,7 @@
         <li class="nav-item"><a href="{{route('main.index')}}" class="nav-link">Главная</a></li>
         <li class="nav-item"><a href="{{route('about.index')}}" class="nav-link">О нас</a></li>
         <li class="nav-item"><a href="{{route('post.index')}}" class="nav-link">Посты</a></li>
+        <li class="nav-item"><a href="{{route('theme.toggle')}}" class="nav-link">Переключатель темы</a></li>
         @auth()
             <li class="nav-item"><a href="{{route('admin.index')}}" class="nav-link">Админка</a></li>
             <li class="nav-item">
